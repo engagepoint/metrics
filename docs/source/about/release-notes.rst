@@ -6,7 +6,7 @@ Release Notes
 
 .. _rel-3.0.1:
 
-v3.0.2-SNAPSHOT
+v3.0.2-EP-SNAPSHOT
 ===================
 
 * Fixed swapped m1 and m15 rates in MetricsModule

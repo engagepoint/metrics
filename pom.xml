@@ -7,7 +7,7 @@
 
     <groupId>com.codahale.metrics</groupId>
     <artifactId>metrics-parent</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.2-EP</version>
     <packaging>pom</packaging>
     <name>Metrics Parent</name>
     <description>
@@ -27,7 +27,7 @@
         <module>metrics-jdbi</module>
         <module>metrics-jersey</module>
         <module>metrics-jetty8</module>
-        <module>metrics-jetty9</module>
+        <!--<module>metrics-jetty9</module>-->
         <module>metrics-json</module>
         <module>metrics-jvm</module>
         <module>metrics-log4j</module>
@@ -66,7 +66,7 @@
         <connection>scm:git:git://github.com/codahale/metrics.git</connection>
         <developerConnection>scm:git:git@github.com:codahale/metrics.git</developerConnection>
         <url>http://github.com/codahale/metrics/</url>
-        <tag>v3.0.2</tag>
+        <tag>v3.0.2-EP</tag>
     </scm>
 
     <issueManagement>

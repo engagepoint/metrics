@@ -8,7 +8,7 @@
 
 package com.codahale.metrics;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 // CHECKSTYLE:OFF
 /**
@@ -123,7 +123,7 @@ abstract class Striped64 extends Number {
      * different value upon collisions.
      */
     static final class HashCode {
-        static final Random rng = new Random();
+        static final SecureRandom rng = new SecureRandom();
         int code;
 
         HashCode() {
