@@ -1,5 +1,6 @@
 package com.codahale.metrics;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -16,6 +17,7 @@ public class UniformReservoir implements Reservoir {
     private static final int BITS_PER_LONG = 63;
     private final AtomicLong count = new AtomicLong();
     private final AtomicLongArray values;
+    private static final SecureRandom rnd = new SecureRandom();
 
     /**
      * Creates a new {@link UniformReservoir} of 1028 elements, which offers a 99.9% confidence level
@@ -70,7 +72,7 @@ public class UniformReservoir implements Reservoir {
     private static long nextLong(long n) {
         long bits, val;
         do {
-            bits = ThreadLocalRandom.current().nextLong() & (~(1L << BITS_PER_LONG));
+            bits = rnd.nextLong() & (~(1L << BITS_PER_LONG));
             val = bits % n;
         } while (bits - val + (n - 1) < 0L);
         return val;

@@ -8,14 +8,14 @@
 
 package com.codahale.metrics;
 
-import java.security.SecureRandom;
+import java.util.Random;
 
 // CHECKSTYLE:OFF
 /**
  * Copied directly from the JSR-166 project.
  */
 @SuppressWarnings("all")
-class ThreadLocalRandom extends SecureRandom {
+class ThreadLocalRandom extends Random {
     // same constants as Random, but must be redeclared because private
     private static final long multiplier = 0x5DEECE66DL;
     private static final long addend = 0xBL;
@@ -62,7 +62,7 @@ class ThreadLocalRandom extends SecureRandom {
      *
      * @return the current thread's {@code ThreadLocalRandom}
      */
-    public static ThreadLocalRandom current() {
+    public static Random current() {
         return localRandom.get();
     }
 

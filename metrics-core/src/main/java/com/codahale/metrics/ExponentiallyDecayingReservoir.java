@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import static java.lang.Math.exp;
 import static java.lang.Math.min;
+import java.security.SecureRandom;
 
 /**
  * An exponentially-decaying random reservoir of {@code long}s. Uses Cormode et al's
@@ -31,6 +32,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
     private volatile long startTime;
     private final AtomicLong nextScaleTime;
     private final Clock clock;
+    private final SecureRandom rnd = new SecureRandom();
 
     /**
      * Creates a new {@link ExponentiallyDecayingReservoir} of 1028 elements, which offers a 99.9%
@@ -90,8 +92,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
         rescaleIfNeeded();
         lockForRegularUsage();
         try {
-            final double priority = weight(timestamp - startTime) / ThreadLocalRandom.current()
-                                                                                     .nextDouble();
+            final double priority = weight(timestamp - startTime) / rnd.nextDouble();
             final long newCount = count.incrementAndGet();
             if (newCount <= size) {
                 values.put(priority, value);
