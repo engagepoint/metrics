@@ -7,7 +7,7 @@
 
     <groupId>com.codahale.metrics</groupId>
     <artifactId>metrics-parent</artifactId>
-    <version>3.0.2-EP</version>
+    <version>3.0.2-HHSTECHGROUP</version>
     <packaging>pom</packaging>
     <name>Metrics Parent</name>
     <description>
